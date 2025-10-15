@@ -5,11 +5,16 @@ import { verifyPassword } from "@/utils/auth";
 import connectDB from "@/utils/connectDB";
 
 
+
+
 export const authOptions = {
   session: { strategy: "jwt" },
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
+        if (!credentials) {
+          throw new Error("لطفا اطلاعات معتبر وارد کنید");
+        }
         const { email, password } = credentials;
 
         try {

@@ -1,17 +1,14 @@
-import { NextRequest, NextResponse } from "next/server";
+import {  NextResponse } from "next/server";
 import User from "@/models/User";
 import connectDB from "@/utils/connectDB";
 import { hashPassword } from "@/utils/auth";
 
-type RequestBody = {
-  email: string;
-  password: string;
-};
 
-export async function POST(req: NextRequest) {
+
+export async function POST(req) {
   try {
     await connectDB();
-    const { email, password }: RequestBody = await req.json();
+    const { email, password } = await req.json();
     console.log({ email, password });
     if (!email || !password) {
       return NextResponse.json(
