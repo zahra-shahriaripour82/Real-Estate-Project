@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
   
       <main >
         <h1>سلام</h1>
+        <Toaster/>
       </main>
     
   );
