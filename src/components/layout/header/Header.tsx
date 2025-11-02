@@ -4,10 +4,10 @@ import Link from "next/link";
 import { FiLogIn } from "react-icons/fi";
 import { FaUserAlt } from "react-icons/fa";
 import styles from "./Header.module.css";
-// import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 function Header() {
-//   const { data } = useSession();
+  const { data } = useSession();
 
   return (
     <header className={styles.header}>
@@ -21,7 +21,7 @@ function Header() {
           </li>
         </ul>
       </div>
-      {/* {data ? (
+      {data ? (
         <div className={styles.login}>
           <Link href="/dashboard">
             <FaUserAlt />
@@ -34,7 +34,7 @@ function Header() {
             <span>ورود</span>
           </Link>
         </div>
-      )} */}
+      )}
     </header>
   );
 }

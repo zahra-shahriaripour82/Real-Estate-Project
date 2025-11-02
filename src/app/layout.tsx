@@ -1,6 +1,8 @@
+import { Toaster } from "react-hot-toast";
+import NextAuthPrivider from "@/providers/NextAuthProvider"
 import { yekan } from "@/utils/fonts";
-import "./globals.css";
 import Layout from "@/layout/Layout";
+import "./globals.css";
 
 export const metadata = {
   title: "املاک | پروژه بوتواستارت",
@@ -16,7 +18,11 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body className={yekan.className}>
+        <NextAuthPrivider>
+
         <Layout>{children}</Layout>
+        </NextAuthPrivider>
+        <Toaster/>
       </body>
     </html>
   );

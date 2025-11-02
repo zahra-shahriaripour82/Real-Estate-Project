@@ -4,7 +4,9 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import style from "../authForm/SignUpPage.module.css"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
+import { useState } from "react"
 import Link from "next/link"
+import Loader from "@/module/Loader.js"
 
 
 
@@ -19,6 +21,7 @@ type Inputs = {
 }
 
 function SignupPage() {
+  const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
  const {
     register,
@@ -31,6 +34,7 @@ function SignupPage() {
 
 const submitHandler:SubmitHandler<Inputs> =async ({email,password})=>{
   
+  setLoading(true);
   const res= await fetch("/api/auth/signup",{
     method:"POST",
     body:JSON.stringify({email,password}),
@@ -38,10 +42,15 @@ const submitHandler:SubmitHandler<Inputs> =async ({email,password})=>{
   });
 
   const data= await res.json()
+  console.log(res.json);
+  
+  setLoading(false);
 if (res.status === 201) {
       router.push("/signin");
+      
     } else {
       toast.error(data.error);
+      
     }
   };
 
@@ -62,7 +71,13 @@ if (res.status === 201) {
           {errors.rePassword && <span className={style.error}>{errors.rePassword.message}</span>}
         <input type="password" {...register("rePassword",{required:"تکرار رمز عبور الزامی است",   validate: value => value ===password  || 'رمز عبور و تکرار آن مطابقت ندارند'})}  />
         
-        <button>ثبت نام</button>
+         {loading ? (
+          <Loader />
+        ) : (
+          <button type="submit">
+            ثبت نام
+          </button>
+        )}
       </form>
        <p>
         حساب کاربری دارید؟
