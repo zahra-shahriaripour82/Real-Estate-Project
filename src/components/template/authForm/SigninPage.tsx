@@ -34,8 +34,8 @@ const submitHandler : SubmitHandler<Inputs>= async ({email,password})=>{
       redirect: false,
     });
     setLoading(false);
-    if (res.error) {
-      toast.error(res.error);
+    if (res?.error) {
+      toast.error(res?.error);
     } else {
       router.push("/");
     }

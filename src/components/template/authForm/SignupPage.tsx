@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
 import { useState } from "react"
 import Link from "next/link"
-import Loader from "@/module/Loader.js"
+import Loader from "@/module/Loader"
 
 
 
