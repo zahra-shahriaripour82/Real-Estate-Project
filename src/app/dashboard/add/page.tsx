@@ -1,8 +1,9 @@
+import AddProfilePage from "@/template/addProfile/AddProfilePage"
 
 
 function AddProfile() {
   return (
-    <div>AddProfile</div>
+    <AddProfilePage/>
   )
 }
 
