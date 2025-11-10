@@ -1,5 +1,5 @@
 import styles from "@/layout/dashboardLayout/DashboardSidebar.module.css";
-import LogoutButton from "@/module/LogoutButton";
+import LogoutButton from "@/module/logoutbtn/LogoutButton";
 import { CgProfile } from "react-icons/cg";
 
 import Link from "next/link";

@@ -3,7 +3,8 @@
 import { ProfileDataType } from "@/utils/types/Types";
 import styles from "@/template/addProfile/AddProfilePage.module.css";
 import { useState } from "react";
-import TextInput from "@/module/TextInput";
+import TextInput from "@/module/textInput/TextInput";
+import RadioList from "@/module/radiolist/RadioList";
 
 export default function AddProfilePage() {
   const [profileData, setProfileData] = useState<ProfileDataType>({
@@ -60,7 +61,7 @@ export default function AddProfilePage() {
         profileData={profileData}
         setProfileData={setProfileData}
       />
-      {/* <RadioList profileData={profileData} setProfileData={setProfileData} /> */}
+      <RadioList profileData={profileData} setProfileData={setProfileData} />
       {/* <TextList
         title="امکانات رفاهی"
         profileData={profileData}

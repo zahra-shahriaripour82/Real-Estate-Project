@@ -1,5 +1,5 @@
 import {  TextInputProps } from "@/utils/types/Types";
-import styles from "@/module/TextInput.module.css"
+import styles from "@/module/textInput/TextInput.module.css"
 import {p2e }from "@/utils/replaceNumber";
 
 
