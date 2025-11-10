@@ -1,22 +1,12 @@
-"use client"
+"use client";
 
+import { ProfileDataType } from "@/utils/types/Types";
+import styles from "@/template/addProfile/AddProfilePage.module.css";
 import { useState } from "react";
+import TextInput from "@/module/TextInput";
 
-type profileDataType={
-    title:string,
-    description:string,
-    location:string,
-    phone:string,
-     price:string,
-    realState: string,
-    constructionDate: Date,
-    category: string,
-    rules: string[],
-    amenities:string[],
-}
-
- export default  function AddProfilePage() {
-      const [profileData, setProfileData] = useState<profileDataType>({
+export default function AddProfilePage() {
+  const [profileData, setProfileData] = useState<ProfileDataType>({
     title: "",
     description: "",
     location: "",
@@ -28,9 +18,66 @@ type profileDataType={
     rules: [],
     amenities: [],
   });
+
+  const submitHandler=()=>{}
   return (
-    <div>AddProfilePage</div>
-  )
+    <div className={styles.container}>
+      <h3>ثبت اگهی </h3>
+      <TextInput
+        title="عنوان آگهی"
+        name="title"
+        profileData={profileData}
+        setProfileData={setProfileData}
+      />
+         <TextInput
+        title="توضیحات"
+        name="description"
+        profileData={profileData}
+        setProfileData={setProfileData}
+        textarea={true}
+      />
+      <TextInput
+        title="آدرس"
+        name="location"
+        profileData={profileData}
+        setProfileData={setProfileData}
+      />
+      <TextInput
+        title="شماره تماس"
+        name="phone"
+        profileData={profileData}
+        setProfileData={setProfileData}
+      />
+      <TextInput
+        title="قیمت(تومان)"
+        name="price"
+        profileData={profileData}
+        setProfileData={setProfileData}
+      />
+      <TextInput
+        title="بنگاه"
+        name="realState"
+        profileData={profileData}
+        setProfileData={setProfileData}
+      />
+      {/* <RadioList profileData={profileData} setProfileData={setProfileData} /> */}
+      {/* <TextList
+        title="امکانات رفاهی"
+        profileData={profileData}
+        setProfileData={setProfileData}
+        type="amenities"
+      />
+      <TextList
+        title="قوانین"
+        profileData={profileData}
+        setProfileData={setProfileData}
+        type="rules"
+      /> */}
+      <button className={styles.submit} onClick={submitHandler}>
+          ثبت آگهی
+        </button>
+    </div>
+  );
 }
 
 // export default AddProfilePage
