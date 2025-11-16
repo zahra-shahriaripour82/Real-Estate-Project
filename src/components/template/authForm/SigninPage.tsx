@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import style from "../authForm/SignUpPage.module.css"
 import { useRouter } from "next/navigation"
 import { signIn } from "next-auth/react";
-import Loader from "@/module/Loader"
+import Loader from "@/module/loader/Loader"
 import toast from "react-hot-toast"
 import { useState } from "react"
 import Link from 'next/link'

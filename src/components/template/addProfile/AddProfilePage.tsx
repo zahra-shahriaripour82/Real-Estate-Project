@@ -5,6 +5,8 @@ import styles from "@/template/addProfile/AddProfilePage.module.css";
 import { useState } from "react";
 import TextInput from "@/module/textInput/TextInput";
 import RadioList from "@/module/radiolist/RadioList";
+import TextList from "@/module/textlist/TextList";
+import CustomDatePicker from "@/module/datepicker/CustomDatePicker";
 
 export default function AddProfilePage() {
   const [profileData, setProfileData] = useState<ProfileDataType>({
@@ -62,7 +64,7 @@ export default function AddProfilePage() {
         setProfileData={setProfileData}
       />
       <RadioList profileData={profileData} setProfileData={setProfileData} />
-      {/* <TextList
+      <TextList
         title="امکانات رفاهی"
         profileData={profileData}
         setProfileData={setProfileData}
@@ -73,7 +75,8 @@ export default function AddProfilePage() {
         profileData={profileData}
         setProfileData={setProfileData}
         type="rules"
-      /> */}
+      />
+      <CustomDatePicker profileData={profileData} setProfileData={setProfileData}/>
       <button className={styles.submit} onClick={submitHandler}>
           ثبت آگهی
         </button>
