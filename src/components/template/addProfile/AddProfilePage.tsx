@@ -1,12 +1,16 @@
 "use client";
 
-import { ProfileDataType } from "@/utils/types/Types";
+import CustomDatePicker from "@/module/datepicker/CustomDatePicker";
 import styles from "@/template/addProfile/AddProfilePage.module.css";
-import { useState } from "react";
+import { ProfileDataType } from "@/utils/types/Types";
 import TextInput from "@/module/textInput/TextInput";
 import RadioList from "@/module/radiolist/RadioList";
 import TextList from "@/module/textlist/TextList";
-import CustomDatePicker from "@/module/datepicker/CustomDatePicker";
+import Loader from "@/module/loader/Loader";
+
+import { useState } from "react";
+import toast from "react-hot-toast";
+
 
 export default function AddProfilePage() {
   const [profileData, setProfileData] = useState<ProfileDataType>({
@@ -21,8 +25,22 @@ export default function AddProfilePage() {
     rules: [],
     amenities: [],
   });
-
-  const submitHandler=()=>{}
+const [loading,setLoading]=useState(false)
+  const submitHandler=async ()=>{
+    setLoading(true)
+const res =await fetch("/api/profile",{
+  method:"Post",
+  body:JSON.stringify(profileData),
+ headers: { "Content-Type": "application/json" },
+})
+const data= await res.json()
+setLoading(false)
+if(data.error) {
+ toast.error(data.error)
+}else {
+  toast.success(data.message)
+}
+  }
   return (
     <div className={styles.container}>
       <h3>ثبت اگهی </h3>
@@ -77,9 +95,9 @@ export default function AddProfilePage() {
         type="rules"
       />
       <CustomDatePicker profileData={profileData} setProfileData={setProfileData}/>
-      <button className={styles.submit} onClick={submitHandler}>
+      {loading? <Loader/> : (<button className={styles.submit} onClick={submitHandler}>
           ثبت آگهی
-        </button>
+        </button>)}
     </div>
   );
 }
