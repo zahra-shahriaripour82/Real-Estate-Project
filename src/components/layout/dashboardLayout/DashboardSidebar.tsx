@@ -4,7 +4,12 @@ import { CgProfile } from "react-icons/cg";
 
 import Link from "next/link";
 
-function DashboardSidbar({ children }: { children: React.ReactNode }) {
+type Props={
+  children:React.ReactNode,
+  email
+}
+
+function DashboardSidbar({ children }:Props) {
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
