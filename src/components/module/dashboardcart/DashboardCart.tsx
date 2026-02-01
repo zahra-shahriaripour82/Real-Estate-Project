@@ -5,14 +5,11 @@ import { Toaster, toast } from "react-hot-toast";
 import { AiOutlineDelete } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import Card from "@/module/card/Card";
-import styles from "@/module/dashboardcart/DashboardCart.module.css"
-import { ProfileProps } from "@/utils/types/Types"
+import styles from "@/module/dashboardcart/DashboardCart.module.css";
+import { ProfileProps } from "@/utils/types/Types";
 
- 
-function DashboardCart(data:ProfileProps) {
-    console.log(data,"pro")
-
-
+function DashboardCart(data: ProfileProps) {
+  console.log(data, "pro");
 
   const router = useRouter();
 
@@ -35,11 +32,11 @@ function DashboardCart(data:ProfileProps) {
   // };
 
   return (
- <div className={styles.container}>
+    <div className={styles.container}>
       <Card data={data} />
       <div className={styles.main}>
         <button onClick={editHandler}>
-          ویرایش
+          ویرایش1
           <FiEdit />
         </button>
         <button onClick={deleteHandler}>
@@ -49,7 +46,7 @@ function DashboardCart(data:ProfileProps) {
       </div>
       <Toaster />
     </div>
-  )
+  );
 }
 
-export default DashboardCart
+export default DashboardCart;
