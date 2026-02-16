@@ -14,6 +14,7 @@ function DashboardSidbar({ children }: Props) {
     <div className={styles.container}>
       <div className={styles.sidebar}>
         <CgProfile />
+        {/* its for svg */}
         {/* <p>{email}</p> */}
         <span></span>
         <Link href="/dashboard">حساب کاربری</Link>
