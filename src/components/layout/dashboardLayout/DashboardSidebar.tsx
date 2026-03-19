@@ -6,16 +6,16 @@ import Link from "next/link";
 
 type Props = {
   children: React.ReactNode;
-  email;
+  email: string;
 };
 
-function DashboardSidbar({ children }: Props) {
+function DashboardSidbar({ children, email }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
         <CgProfile />
         {/* its for svg */}
-        {/* <p>{email}</p> */}
+        <p>{email}</p>
         <span></span>
         <Link href="/dashboard">حساب کاربری</Link>
         <Link href="/dashboard/my-profiles">آگهی های من</Link>

@@ -9,11 +9,11 @@ type RadioListProps = {
 
 function RadioList({ profileData, setProfileData }: RadioListProps) {
   const { category } = profileData;
-  const changeHandler=(e: React.ChangeEvent<HTMLInputElement>)=>{
-const {name,value}=e.target
-setProfileData({...profileData,[name]:value})
-  }
-  
+  const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setProfileData({ ...profileData, [name]: value });
+  };
+
   return (
     <div className={styles.container}>
       <p>دسته بندی</p>
@@ -29,7 +29,7 @@ setProfileData({...profileData,[name]:value})
             onChange={changeHandler}
           />
         </div>
-         <div>
+        <div>
           <label htmlFor="apartment">آپارتمان</label>
           <input
             type="radio"
