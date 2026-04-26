@@ -20,47 +20,51 @@ export interface TextInputProps {
 }
 
 export interface ProfileProps {
-  data:{
- _id: string;
-  title: string;
-  description: string;
-  location: string;
-  phone: string;
-  realState: string;
-  price: number;
-  constructionDate: string;
-  category: string;
-  amenities: string[];
-  rules: string[];
-  userId: string;
-  published: boolean;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-  }
- 
+  data: {
+    _id: string;
+    title: string;
+    description: string;
+    location: string;
+    phone: string;
+    realState: string;
+    price: number;
+    constructionDate: string;
+    category: string;
+    amenities: string[];
+    rules: string[];
+    userId: string;
+    published: boolean;
+    createdAt: string;
+    updatedAt: string;
+    __v: number;
+  };
 }
 
+export type ProfilesProps = {
+  profiles: [
+    {
+      _id: string;
+      title: string;
+      description: string;
+      location: string;
+      phone: string;
+      realState: string;
+      price: number;
+      constructionDate: string;
+      category: string;
+      amenities: string[];
+      rules: string[];
+      userId: string;
+      published: boolean;
+      createdAt: string;
+      updatedAt: string;
+      __v: number;
+    },
+  ];
+};
 
- export type ProfilesProps={
-    profiles:[
-        {
-            _id:string,
-            title:string,
-            description:string,
-            location:string,
-            phone:string,
-            realState:string,
-            price:number,
-            constructionDate: string
-    category: string,
-    amenities: string[],
-    rules: string[],
-    userId: string,
-    published: boolean,
-    createdAt: string,
-    updatedAt: string,
-    __v: number
-        }
-    ]
+// interface for categorycard componet
+export interface categorycardProps {
+  name: string;
+  title: string;
 }
