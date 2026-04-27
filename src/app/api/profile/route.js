@@ -5,6 +5,21 @@ import connectDB from "@/utils/connectDB";
 import User from "../../../models/User";
 import { Types } from "mongoose";
 
+// Get all advertisments
+export async function GET() {
+  try {
+    await connectDB();
+    const profiles = await Profile.find().select("-userId");
+    return NextResponse.json({ data: profiles }, { status: 200 });
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json(
+      { messge: " مشکلی در سرور  رخ داده است " },
+      { status: 500 },
+    );
+  }
+}
+
 // Create advertisement
 export async function POST(req) {
   try {
