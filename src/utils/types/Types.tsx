@@ -63,6 +63,10 @@ export type ProfilesProps = {
   ];
 };
 
+export type ProfileWithoutUserIdProps = {
+  
+  data: Omit<ProfileProps["data"], "userId">;
+};
 // interface for categorycard componet
 export interface categorycardProps {
   name: string;
