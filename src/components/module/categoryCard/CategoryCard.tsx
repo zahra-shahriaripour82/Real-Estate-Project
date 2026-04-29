@@ -7,7 +7,7 @@ import { categorycardProps } from "@/utils/types/Types";
 function CategoryCard({ title, name }: categorycardProps) {
   return (
     <div className={styles.card}>
-      <Link href="/">
+      <Link href={`buy-residential?category=${name}`}>
         <Image
           src={`/images/${name}.png`}
           alt={title}
